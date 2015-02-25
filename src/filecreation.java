@@ -8,7 +8,11 @@ public class filecreation {
 	    
 		boolean status;
 	    
-		status = new File("C:/Users/Ankit/Desktop/myfolder3").mkdir();
+		/* Step1 
+		 */
+		String Step1 = "C:/Users/Ankit/Desktop/myfolder3";
+		
+		status = new File(Step1).mkdir();
 		if(status) {
 			status = new File ("C:/Users/Ankit/Desktop/myfolder3/myfile.txt").createNewFile();
 		}

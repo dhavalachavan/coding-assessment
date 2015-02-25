@@ -8,20 +8,18 @@ public class filecreation {
 	    
 		boolean status;
 	    
-		/* Step1 
-		 */
+		/* Step1:Create a new folder*/
+		 
 		String Step1 = "C:/Users/Ankit/Desktop/myfolder3";
 		
 		status = new File(Step1).mkdir();
+		
+		/*Step 2: Create a new file */
 		if(status) {
 			status = new File ("C:/Users/Ankit/Desktop/myfolder3/myfile.txt").createNewFile();
 		}
-
-	
-	//static void report(boolean status){
-		//System.out.println(status);
-	//}
-	
+ 
+		/*Step3:Add content to a file.FileNotFound exception handled */
 	
 	    try
 	    {
@@ -43,15 +41,12 @@ public class filecreation {
 	    {
 	        System.out.println(ex);
 	    }
-	    
+	    /*Step4: Copy from source file to destination file*/
 	    try{
 	    	  File f1 = new File("C:/Users/Ankit/Desktop/myfolder1/myfile.txt");
 	    	  File f2 = new File("C:/Users/Ankit/Desktop/myfolder3/myfile.txt");
 	    	  FileInputStream in = new FileInputStream(f1);
-	    	  
-	    	  //For Append the file.
-	    	//  OutputStream out = new FileOutputStream(f2,true);
-
+	    
 	    	  //For Overwrite the file.
 	    	  OutputStream out = new FileOutputStream(f2);
 
@@ -72,12 +67,8 @@ public class filecreation {
 	    	  System.out.println(e.getMessage());  
 	    	  }
 	    
-	    
-
-
-          BufferedReader in = new BufferedReader(new FileReader("C:/Users/Ankit/Desktop/myfolder3/myfile.txt"));
-
-//Then, you can use in.readLine(); to read a single line at a time. To read until the end, write a while loop as such:
+	 /*Step 5 : Display file contents*/   
+         BufferedReader in = new BufferedReader(new FileReader("C:/Users/Ankit/Desktop/myfolder3/myfile.txt"));
 
           String line;
            while((line = in.readLine()) != null)
@@ -86,8 +77,7 @@ public class filecreation {
            }
           in.close();
 
-
-
+     /*Step 6 : List all the folder contents.Will print if contents are files or directories*/
          File f = new File("C:/Users/Ankit/Desktop"); // current directory
 
             File[] files = f.listFiles();
@@ -97,7 +87,8 @@ public class filecreation {
 	     } else {
 		  System.out.print("     file:");
 	   }
-	   System.out.println(file.getCanonicalPath());
+	  
+	 /*Step 7 & 8: The 'findFile' method will take the input parameters(filename/absolute path) to find it*/
 	   
 	   String fn = "myfile.txt";
 	    File dir = new File("C:/Users/");
